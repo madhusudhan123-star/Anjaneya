@@ -603,49 +603,73 @@ const App = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col justify-center space-y-4 mt-4 sm:mt-0">
-                  <div className="text-lg sm:text-xl font-bold text-gray-800 flex flex-wrap items-center gap-2 sm:gap-4">
-                    <span className="line-through text-red-500">₹ {originalPrice}</span>
-                    <span className="text-green-600">₹ {productPrice}</span>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
-                    <div className="w-full sm:w-auto">
-                      <label htmlFor="quantity" className="block sm:inline mr-2 text-gray-700 mb-1 sm:mb-0">
-                        {translations?.productpage?.secondtitle || 'Quantity'}
-                      </label>
-                      <div className="flex items-center bg-white md:w-full w-1/2 shadow-md rounded-lg border border-gray-200">
-                        <button
-                          type="button"
-                          onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                          className="px-4 py-2 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xl font-medium rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                        >
-                          −
-                        </button>
-                        <input
-                          type="number"
-                          id="quantity"
-                          min="1"
-                          value={quantity}
-                          onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                          className="w-16 px-3 py-2 text-center text-gray-700 font-medium border-x border-gray-200 focus:outline-none"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => setQuantity(prev => prev + 1)}
-                          className="px-4 py-2 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xl font-medium rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                        >
-                          +
-                        </button>
+                <div className="flex flex-col justify-between md:w-1/2 space-y-6">
+                  {/* Product Title and Description */}
+                  <div className="space-y-6">
+                    <div>
+                      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                        Sree Anjaneya Shani Raksha Kavach
+                      </h1>
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="line-through text-lg text-red-500">₹{originalPrice}</span>
+                        <span className="text-2xl text-green-600 font-bold">₹{productPrice}</span>
                       </div>
-                      {quantity > 1 && (
-                        <span className="ml-4 text-sm text-green-600 font-medium animate-fade-in">
-                          {quantity} items selected
-                        </span>
-                      )}
+                      {/* Quantity Selector */}
+                      <div className="mt-6">
+                        <label htmlFor="quantity" className="block text-sm font-medium text-gray-700 mb-2">
+                          {translations?.productpage?.secondtitle || 'Quantity'}
+                        </label>
+                        <div className="flex items-center space-x-4">
+                          <div className="flex items-center bg-white shadow-md rounded-lg border border-gray-200">
+                            <button
+                              type="button"
+                              onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                              className="px-4 py-2 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xl font-medium rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            >
+                              −
+                            </button>
+                            <input
+                              type="number"
+                              id="quantity"
+                              min="1"
+                              value={quantity}
+                              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                              className="w-16 px-3 py-2 text-center text-gray-700 font-medium border-x border-gray-200 focus:outline-none"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => setQuantity(prev => prev + 1)}
+                              className="px-4 py-2 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xl font-medium rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            >
+                              +
+                            </button>
+                          </div>
+                          {quantity > 1 && (
+                            <span className="text-sm text-green-600 font-medium animate-fade-in">
+                              {quantity} items selected
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="prose prose-sm text-gray-600">
+                      <p className="mb-4">
+                        A powerful spiritual protection amulet combining the divine energies of Lord Hanuman and Shani Dev.
+                      </p>
+                      <ul className="list-disc list-inside space-y-2">
+                        <li>Handcrafted with sacred materials</li>
+                        <li>Blessed with ancient Vedic mantras</li>
+                        <li>Provides protection from negative energies</li>
+                        <li>Helps minimize the effects of Shani Dasha</li>
+                        <li>Perfect for spiritual protection and peace</li>
+                      </ul>
                     </div>
                   </div>
+
+
                 </div>
+
               </div>
             </div>
           </div>
